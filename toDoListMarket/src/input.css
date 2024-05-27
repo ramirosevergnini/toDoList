@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+input::placeholder {
+    color: rgba(0, 0, 0, 0.616);
+
+}
+.task {
+    background-color: #fff;
+}
+
+.task-done {
+    background-color: #dcdcdc;
+    color: #000000; 
+}

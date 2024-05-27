@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+</head>
+
+<body class="bg-gray-950">
+
+    <div id="app">
+
+        <header class="bg-gray-900 py-4 h-20">
+            <h1 class="text-white text-3xl font-bold text-center">Don't Forget</h1>
+        </header>
+
+        <main>
+            <div class="h-730 w-500 bg-gray-800 m-auto mt-20 flex flex-col justify-between border-2 border-black">
+
+                <header class="bg-gray-900 h-14 flex justify-center items-center border-2 border-black">
+                    <h2 class="text-white font-bold text-2xl">TO DO LIST</h2>
+                </header>
+                <div class="h-16 w-490 bg-gray-800 m-auto  flex justify-between items-center">
+                    <input class="ml-3 w-96 p-1" type="text" name="tarefa" id="tarefa" placeholder="Write here" v-model="newTask"  @keyup.enter="addNewTask">
+                    <button class="text-3xl mr-3" @click="addNewTaskWrapper">></button>
+                </div>
+                <main class="bg-gray-900 h-auto" style="flex: 1;">
+                    <div v-for="(task, index) in tasks" :key="index" class="bg-gray-900 h-12 border-b border-black flex justify-between items-center task" :class="{ 'task-done': task.done }" @click="toggleTaskDone(index)">
+                        <div>
+                            <img class="h-9 ml-2" :src="task.trocar ? '../images/checkbox.png' : '../images/checkboxVazia.png'" @click="changeImage(task)">
+                        </div>
+                        <div>
+                            <h2 class="mr-8 text-white">{{ task.name }}</h2>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </main>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
